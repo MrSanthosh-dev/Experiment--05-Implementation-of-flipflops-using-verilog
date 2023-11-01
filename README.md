@@ -1,7 +1,10 @@
-# Experiment--05-Implementation-of-flipflops-using-verilog
-### AIM: To implement all the flipflops using verilog and validating their functionality using their functional tables
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+## Experiment--05-Implementation-of-flipflops-using-verilog
+### AIM: 
+To implement all the flipflops using verilog and validating their functionality using their functional tables
+### HARDWARE REQUIRED:  
+PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED: 
+Quartus prime
 ### THEORY 
 SR Flip-Flop
 SR flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, SR latch operates with enable signal. The circuit diagram of SR flip-flop is shown in the following figure.
@@ -102,16 +105,56 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+Step 1:
+Open Quartus II and select new project and choose the file location.
+Step 2:
+Module Declaration. Module should have the file name.
+Step 3:
+Declare Inputs and outputs.
+Step 4:
+Use assign declaration and wire to define the functionality of logic circuits.
+Step 5:
+End the program with endmodule.
+Step 6:
+Run the program and choose RTL viewer to get RTL realization.
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+## Developed by: Santhosh S
+## RegisterNumber:  212222100047
+## SR FLIP FLOP
+```
+module exp05(s,r,q,qbar,cik);
+input s,r,cik;
+output reg q,qbar;
+initial q = 0;
+initial qbar = 1;
+always @(posedge cik)
+begin 
+q=s|(q&(~r));
+qbar=r|(qbar&(~s));
+end
+endmodule
+```
+
+
+## JK FLIP FLOP
+```
+module jk(j,k,q,qbar,cik);
+input j,k,cik;
+output reg q,qbar;
+initial q = 0;
+initial qbar = 1;
+always @(posedge cik)
+begin 
+q=((~q)&j)|(q&(~k));
+qbar=((~qbar)&k)| (qbar&(~j));
+end
+endmodule
+```
 
 
 
@@ -119,8 +162,14 @@ RegisterNumber:
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+## SR FLIP FLOP
+![image](https://github.com/MrSanthosh-dev/Experiment--05-Implementation-of-flipflops-using-verilog/assets/117916573/019cbc1a-aa74-4e4c-84ac-e1e59249fcf8)
 
 
+
+
+## JK FLIP FLOP
+![image](https://github.com/MrSanthosh-dev/Experiment--05-Implementation-of-flipflops-using-verilog/assets/117916573/da876bc1-b6b7-4311-8176-020ec689e69d)
 
 
 
@@ -129,12 +178,17 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+## SR FLIP FLOP
 
+![image](https://github.com/MrSanthosh-dev/Experiment--05-Implementation-of-flipflops-using-verilog/assets/117916573/cd8df9a1-69ff-49c6-a307-2093a50dfc98)
 
+## JK FLIP FLOP
 
+![image](https://github.com/MrSanthosh-dev/Experiment--05-Implementation-of-flipflops-using-verilog/assets/117916573/77c8a3d2-e320-473b-84a1-c6d977f5720e)
 
 
 
 
 
 ### RESULTS 
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
